@@ -1,4 +1,4 @@
-package com.usc;
+package com.usc.test;
 
 import com.usc.model.Comprador;
 import com.usc.model.Orden;
