@@ -1,7 +1,58 @@
+# Archivos compilados de Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Archivos generados por el IDE
+*.iml
+*.ipr
+*.iws
+.idea/
+.settings/
+.classpath
+.project
+.factorypath
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de logs
+*.log
+
+# Directorios de build
 target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+build/
+out/
+bin/
+
+# Archivos de configuración local
+application.properties
+application.yml
+application-local.properties
+application-local.yml
+
+# Archivos temporales
+*.tmp
+*.bak
+*.swp
+*~.nib
+
+# Archivos de documentación generados
+doc/
+docs/
+api/
+javadoc/
+
+# Archivos de dependencias
+node_modules/
+vendor/
+
+# Archivos de entorno
+.env
+.env.local
+.env.*.local
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
@@ -28,7 +79,6 @@ target/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
