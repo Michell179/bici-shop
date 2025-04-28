@@ -1,13 +1,19 @@
 package com.usc.model;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.List;
 
 // 1. Declaración de la clase y herencia
+@Getter
 public class Vendedor extends Persona {
+    // Obtiene el inventario completo
     // 2. Atributos específicos del vendedor
     private List<Producto> inventario; // Lista de productos en venta
+    // Obtiene las ventas totales
     private double ventasTotales; // Registro de todas las ventas
+    // Obtiene el código del vendedor
     private String codigoVendedor; // Identificador único del vendedor
 
     // 3. Constructor
@@ -33,11 +39,6 @@ public class Vendedor extends Persona {
         inventario.remove(producto);
     }
 
-    // Obtiene el inventario completo
-    public List<Producto> getInventario() {
-        return this.inventario;
-    }
-
     // 5. Métodos para gestionar ventas
     // Procesa una venta con un comprador
     public boolean procesarVenta(Comprador comprador) {
@@ -48,17 +49,6 @@ public class Vendedor extends Persona {
             return true;
         }
         return false;
-    }
-
-    // 6. Getters y Setters
-    // Obtiene las ventas totales
-    public double getVentasTotales() {
-        return this.ventasTotales;
-    }
-
-    // Obtiene el código del vendedor
-    public String getCodigoVendedor() {
-        return this.codigoVendedor;
     }
 
     // Modifica el código del vendedor

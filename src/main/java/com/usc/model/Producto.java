@@ -1,5 +1,10 @@
 package com.usc.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class Producto {
     // Atributos (características del producto)
     private double precio; // Precio del producto
@@ -19,53 +24,8 @@ public class Producto {
         this.tipoBicicleta = null; // Inicialmente nulo hasta que se defina
     }
 
-    // Para acceder y modificar los atributos (encapsulamiento)
-    public double getPrecio() {
-        return this.precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-
-    public String getDescripcion() {
-        return this.descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public String getMarca() {
-        return this.marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    public int getCantidad() {
-        return this.cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    public TIPO_PRODUCTO getTipoProducto() {
-        return this.tipoProducto;
-    }
-
-    public void setTipoProducto(TIPO_PRODUCTO tipoProducto) {
-        this.tipoProducto = tipoProducto;
-    }
-
-    public TIPO_BICICLETA getTipoBicicleta() {
-        return this.tipoBicicleta;
-    }
-
     public void setTipoBicicleta(TIPO_BICICLETA tipoBicicleta) {
-        if (this.tipoProducto == TIPO_PRODUCTO.BICICLETA) {
+        if (this.tipoProducto.equals(TIPO_PRODUCTO.BICICLETA)) {
             this.tipoBicicleta = tipoBicicleta;
         } else {
             System.out.println("Error: Solo se puede asignar tipo de bicicleta a productos de tipo BICICLETA");

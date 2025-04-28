@@ -1,10 +1,14 @@
 package com.usc.model;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
 
+@Getter
 public class Orden {
+    // Getters
     private String numeroOrden;
     private Comprador comprador;
     private Vendedor vendedor;
@@ -49,25 +53,26 @@ public class Orden {
 
     // Procesar la orden
     public boolean procesarOrden() {
-        if (estado.equals("PENDIENTE") && comprador.puedeComprar()) {
-            // Verificar stock de todos los productos
-            for (Producto producto : productos) {
-                if (!producto.hayStockDisponible(1)) {
-                    System.out.println("No hay suficiente stock para: " + producto.getDescripcion());
-                    return false;
-                }
-            }
-
-            // Procesar la compra
-            comprador.realizarCompra();
-            for (Producto producto : productos) {
-                producto.actualizarStock(-1);
-            }
-            vendedor.procesarVenta(comprador);
-            estado = "COMPLETADA";
-            return true;
+        if (!estado.equals("PENDIENTE") && !comprador.puedeComprar()) {
+            return false;
         }
-        return false;
+
+        // Verificar stock de todos los productos
+        boolean hayStock = productos
+                .stream()
+                .map(p -> p.hayStockDisponible(1))
+                .isParallel();
+
+        if (!hayStock){
+            return false;
+        }
+
+        // Procesar la compra
+        comprador.realizarCompra();
+        productos.forEach(p -> p.actualizarStock(-1));
+        vendedor.procesarVenta(comprador);
+        estado = "COMPLETADA";
+        return true;
     }
 
     // Cancelar la orden
@@ -77,35 +82,6 @@ public class Orden {
             productos.clear();
             calcularTotal();
         }
-    }
-
-    // Getters
-    public String getNumeroOrden() {
-        return numeroOrden;
-    }
-
-    public Comprador getComprador() {
-        return comprador;
-    }
-
-    public Vendedor getVendedor() {
-        return vendedor;
-    }
-
-    public List<Producto> getProductos() {
-        return productos;
-    }
-
-    public double getTotal() {
-        return total;
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public String getEstado() {
-        return estado;
     }
 
     // Mostrar información de la orden
