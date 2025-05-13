@@ -15,10 +15,10 @@ public class Main {
     public static void main(String[] args) {
         // Crear vendedor y productos 
         Vendedor vendedor = new Vendedor(
-            "María García",
-            "maria@bici-shop.com",
-            "123456789",
-            "Calle Principal 123",
+            "Nathalia",
+            "nata.maya.ramirez@gmail.com",
+            "3208087762",
+            "Ciudad country",
             "V001"
         );
 

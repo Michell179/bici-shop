@@ -39,13 +39,13 @@ public class OrdenView extends JFrame {
         txtFecha = new JTextField(15);
         txtFecha.setEditable(false);
 
-        cbEstado = new JComboBox<>(new String[]{"PENDIENTE", "COMPLETADA", "CANCELADA"});
+        cbEstado = new JComboBox<>(new String[] { "PENDIENTE", "COMPLETADA", "CANCELADA" });
         cbComprador = new JComboBox<>();
-        cbVendedor  = new JComboBox<>();
+        cbVendedor = new JComboBox<>();
 
         // Tabla de productos
-        tableModel = new DefaultTableModel(new Object[]{
-            "Tipo", "Descripción", "Marca", "Precio", "Cantidad"
+        tableModel = new DefaultTableModel(new Object[] {
+                "Tipo", "Descripción", "Marca", "Precio", "Cantidad"
         }, 0);
         tblProductos = new JTable(tableModel);
         JScrollPane scrollProductos = new JScrollPane(tblProductos);
@@ -55,35 +55,71 @@ public class OrdenView extends JFrame {
         txtTotal.setEditable(false);
 
         // Botones
-        btnAgregar   = new JButton("Agregar producto");
-        btnEliminar  = new JButton("Eliminar producto");
-        btnProcesar  = new JButton("Procesar orden");
-        btnCancelar  = new JButton("Cancelar orden");
+        btnAgregar = new JButton("Agregar producto");
+        btnEliminar = new JButton("Eliminar producto");
+        btnProcesar = new JButton("Procesar orden");
+        btnCancelar = new JButton("Cancelar orden");
+
+        // Colores botones
+        btnAgregar.setBackground(new Color(0x4CAF50));
+        btnAgregar.setForeground(Color.WHITE);
+        btnAgregar.setOpaque(true);
+        btnAgregar.setBorderPainted(false);
+        btnEliminar.setBackground(new Color(0xF44336));
+        btnEliminar.setForeground(Color.WHITE);
+        btnEliminar.setOpaque(true);
+        btnEliminar.setBorderPainted(false);
+        btnProcesar.setBackground(new Color(0x2196F3));
+        btnProcesar.setForeground(Color.WHITE);
+        btnProcesar.setOpaque(true);
+        btnProcesar.setBorderPainted(false);
+        btnCancelar.setBackground(new Color(0xFF9800));
+        btnCancelar.setForeground(Color.WHITE);
+        btnCancelar.setOpaque(true);
+        btnCancelar.setBorderPainted(false);
 
         // Vista panel de formulario
         JPanel panelForm = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(4,4,4,4);
+        gbc.insets = new Insets(4, 4, 4, 4);
         gbc.anchor = GridBagConstraints.WEST;
 
         int y = 0;
-        gbc.gridx = 0; gbc.gridy = y; panelForm.add(new JLabel("Número de Orden:"), gbc);
-        gbc.gridx = 1;            panelForm.add(txtNumeroOrden, gbc);
+        gbc.gridx = 0;
+        gbc.gridy = y;
+        panelForm.add(new JLabel("Número de Orden:"), gbc);
+        gbc.gridx = 1;
+        panelForm.add(txtNumeroOrden, gbc);
         y++;
-        gbc.gridx = 0; gbc.gridy = y; panelForm.add(new JLabel("Fecha:"), gbc);
-        gbc.gridx = 1;            panelForm.add(txtFecha, gbc);
+        gbc.gridx = 0;
+        gbc.gridy = y;
+        panelForm.add(new JLabel("Fecha:"), gbc);
+        gbc.gridx = 1;
+        panelForm.add(txtFecha, gbc);
         y++;
-        gbc.gridx = 0; gbc.gridy = y; panelForm.add(new JLabel("Estado:"), gbc);
-        gbc.gridx = 1;            panelForm.add(cbEstado, gbc);
+        gbc.gridx = 0;
+        gbc.gridy = y;
+        panelForm.add(new JLabel("Estado:"), gbc);
+        gbc.gridx = 1;
+        panelForm.add(cbEstado, gbc);
         y++;
-        gbc.gridx = 0; gbc.gridy = y; panelForm.add(new JLabel("Comprador:"), gbc);
-        gbc.gridx = 1;            panelForm.add(cbComprador, gbc);
+        gbc.gridx = 0;
+        gbc.gridy = y;
+        panelForm.add(new JLabel("Comprador:"), gbc);
+        gbc.gridx = 1;
+        panelForm.add(cbComprador, gbc);
         y++;
-        gbc.gridx = 0; gbc.gridy = y; panelForm.add(new JLabel("Vendedor:"), gbc);
-        gbc.gridx = 1;            panelForm.add(cbVendedor, gbc);
+        gbc.gridx = 0;
+        gbc.gridy = y;
+        panelForm.add(new JLabel("Vendedor:"), gbc);
+        gbc.gridx = 1;
+        panelForm.add(cbVendedor, gbc);
         y++;
-        gbc.gridx = 0; gbc.gridy = y; panelForm.add(new JLabel("Total:"), gbc);
-        gbc.gridx = 1;            panelForm.add(txtTotal, gbc);
+        gbc.gridx = 0;
+        gbc.gridy = y;
+        panelForm.add(new JLabel("Total:"), gbc);
+        gbc.gridx = 1;
+        panelForm.add(txtTotal, gbc);
 
         // Panel de botones
         JPanel panelBtns = new JPanel();
@@ -94,7 +130,7 @@ public class OrdenView extends JFrame {
 
         // Montaje en el Frame
         Container cp = getContentPane();
-        cp.setLayout(new BorderLayout(6,6));
+        cp.setLayout(new BorderLayout(6, 6));
         cp.add(panelForm, BorderLayout.NORTH);
         cp.add(scrollProductos, BorderLayout.CENTER);
         cp.add(panelBtns, BorderLayout.SOUTH);
