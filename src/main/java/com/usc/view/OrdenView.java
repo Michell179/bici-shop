@@ -14,19 +14,16 @@ public class OrdenView extends JFrame {
     private JTextField txtNumeroOrden;
     private JTextField txtFecha;
     private JComboBox<String> cbEstado;
-    private JComboBox<Comprador> cbComprador;
-    private JComboBox<Vendedor> cbVendedor;
     private JTable tblProductos;
     private DefaultTableModel tableModel;
     private JTextField txtTotal;
     private JButton btnAgregar, btnEliminar, btnProcesar, btnCancelar;
 
     public OrdenView(List<Comprador> compradores, List<Vendedor> vendedores, String numeroOrden) {
-        super("Gestión de Orden");
+        super("Orden");
         initComponents();
-        populateCombos(compradores, vendedores);
         txtNumeroOrden.setText(numeroOrden);
-        txtFecha.setText(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        txtFecha.setText(new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Date()));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         pack();
         setLocationRelativeTo(null);
@@ -39,9 +36,7 @@ public class OrdenView extends JFrame {
         txtFecha = new JTextField(15);
         txtFecha.setEditable(false);
 
-        cbEstado = new JComboBox<>(new String[] { "PENDIENTE", "COMPLETADA", "CANCELADA" });
-        cbComprador = new JComboBox<>();
-        cbVendedor = new JComboBox<>();
+        cbEstado = new JComboBox<>(new String[] { "PENDIENTE", "COMPLETADA", "CANCELADA" }); //Lista de estados
 
         // Tabla de productos
         tableModel = new DefaultTableModel(new Object[] {
@@ -79,45 +74,35 @@ public class OrdenView extends JFrame {
         btnCancelar.setBorderPainted(false);
 
         // Vista panel de formulario
-        JPanel panelForm = new JPanel(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(4, 4, 4, 4);
+        JPanel panelForm = new JPanel(new GridBagLayout()); //Crea un panel con un layout de cuadricula
+        panelForm.setBorder(BorderFactory.createTitledBorder("Detalles de la Orden"));
+        panelForm.setPreferredSize(new Dimension(400, 200)); // Establece el tamaño preferido del panel
+        GridBagConstraints gbc = new GridBagConstraints(); 
+        gbc.insets = new Insets(5, 5, 5, 5); // Espaciado entre componentes
         gbc.anchor = GridBagConstraints.WEST;
 
         int y = 0;
-        gbc.gridx = 0;
-        gbc.gridy = y;
-        panelForm.add(new JLabel("Número de Orden:"), gbc);
+        gbc.gridx = 0; //En que columna voy a ubicar el componente
+        gbc.gridy = y; //En que fila voy a ubicar el componente
+        panelForm.add(new JLabel("NUMERO DE ORDEN:"), gbc);
         gbc.gridx = 1;
         panelForm.add(txtNumeroOrden, gbc);
         y++;
         gbc.gridx = 0;
         gbc.gridy = y;
-        panelForm.add(new JLabel("Fecha:"), gbc);
+        panelForm.add(new JLabel("FECHA:"), gbc);
         gbc.gridx = 1;
         panelForm.add(txtFecha, gbc);
         y++;
         gbc.gridx = 0;
         gbc.gridy = y;
-        panelForm.add(new JLabel("Estado:"), gbc);
+        panelForm.add(new JLabel("ESTADO:"), gbc);
         gbc.gridx = 1;
         panelForm.add(cbEstado, gbc);
         y++;
         gbc.gridx = 0;
         gbc.gridy = y;
-        panelForm.add(new JLabel("Comprador:"), gbc);
-        gbc.gridx = 1;
-        panelForm.add(cbComprador, gbc);
-        y++;
-        gbc.gridx = 0;
-        gbc.gridy = y;
-        panelForm.add(new JLabel("Vendedor:"), gbc);
-        gbc.gridx = 1;
-        panelForm.add(cbVendedor, gbc);
-        y++;
-        gbc.gridx = 0;
-        gbc.gridy = y;
-        panelForm.add(new JLabel("Total:"), gbc);
+        panelForm.add(new JLabel("TOTAL"), gbc);
         gbc.gridx = 1;
         panelForm.add(txtTotal, gbc);
 
@@ -136,9 +121,6 @@ public class OrdenView extends JFrame {
         cp.add(panelBtns, BorderLayout.SOUTH);
     }
 
-    private void populateCombos(List<Comprador> compradores, List<Vendedor> vendedores) {
-        compradores.forEach(cbComprador::addItem);
-        vendedores.forEach(cbVendedor::addItem);
-    }
+ 
 
 }
