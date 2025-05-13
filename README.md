@@ -1,5 +1,7 @@
 # Bici-Shop 🚴‍♂️
 
+![GitHub commit activity](https://img.shields.io/github/commit-activity/t/Michell179/bici-shop) ![GitHub language count](https://img.shields.io/github/languages/count/Michell179/bici-shop?color=red) ![GitHub top language](https://img.shields.io/github/languages/top/Michell179/bici-shop?color=) ![GitHub repo size](https://img.shields.io/github/repo-size/Michell179/bici-shop?color=orange)
+
 ¡Bienvenido a **Bici-Shop**! Este es un proyecto desarrollado en **Java** que simula una tienda de bicicletas. Aquí podrás gestionar inventarios, realizar ventas y explorar diferentes modelos de bicicletas.
 
 ## Características principales ✨
