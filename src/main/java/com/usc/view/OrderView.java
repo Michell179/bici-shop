@@ -43,9 +43,9 @@ public class OrderView extends JFrame {
         topPanel.add(productComboBox);
         topPanel.add(new JLabel("Cantidad:"));
         topPanel.add(quantityField);
-        topPanel.add(new JLabel("Comprador:"));
+        topPanel.add(new JLabel("Buyer:"));
         topPanel.add(buyerComboBox);
-        topPanel.add(new JLabel("Vendedor:"));
+        topPanel.add(new JLabel("Seller:"));
         topPanel.add(sellerComboBox);
         topPanel.add(new JLabel(""));
         topPanel.add(sellButton);
@@ -62,7 +62,7 @@ public class OrderView extends JFrame {
                 int quantity = Integer.parseInt(quantityField.getText());
 
                 if (product == null || buyer == null || seller == null) {
-                    resultArea.append("Debe seleccionar producto, comprador y vendedor.\n");
+                    resultArea.append("Debe seleccionar producto, Buyer y Seller.\n");
                     return;
                 }
 

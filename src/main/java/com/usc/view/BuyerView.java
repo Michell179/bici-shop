@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public class BuyerView extends JFrame {
     public BuyerView(BuyerRepository buyerRepository) {
-        setTitle("Registro de Comprador");
+        setTitle("Registro de Buyer");
         setSize(300, 150);
         setLocationRelativeTo(null);
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
@@ -14,7 +14,7 @@ public class BuyerView extends JFrame {
         JTextField nameField = new JTextField();
         JButton saveButton = new JButton("Registrar");
 
-        add(new JLabel("Nombre del Comprador:"));
+        add(new JLabel("Nombre del Buyer:"));
         add(nameField);
         add(saveButton);
 
@@ -22,7 +22,7 @@ public class BuyerView extends JFrame {
             String name = nameField.getText().trim();
             if (!name.isEmpty()) {
                 buyerRepository.addBuyer(name);
-                JOptionPane.showMessageDialog(this, "Comprador '" + name + "' registrado.");
+                JOptionPane.showMessageDialog(this, "Buyer '" + name + "' registrado.");
                 nameField.setText("");
             } else {
                 JOptionPane.showMessageDialog(this, "El nombre no puede estar vacío.");

@@ -1,7 +1,7 @@
 package com.usc.view;
 
-import com.usc.model.Comprador;
-import com.usc.model.Vendedor;
+import com.usc.model.Buyer;
+import com.usc.model.Seller;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -19,7 +19,7 @@ public class OrdenView extends JFrame {
     private JTextField txtTotal;
     private JButton btnAgregar, btnEliminar, btnProcesar, btnCancelar;
 
-    public OrdenView(List<Comprador> compradores, List<Vendedor> vendedores, String numeroOrden) {
+    public OrdenView(List<Buyer> Buyeres, List<Seller> Selleres, String numeroOrden) {
         super("Orden");
         initComponents();
         txtNumeroOrden.setText(numeroOrden);

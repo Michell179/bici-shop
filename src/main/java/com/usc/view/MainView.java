@@ -91,8 +91,8 @@ public class MainView extends JFrame {
 
 
         JButton viewStockButton = new JButton("Ver Stock");
-        JButton registerSellerButton = new JButton("Registrar Vendedor");
-        JButton registerBuyerButton = new JButton("Registrar Comprador");
+        JButton registerSellerButton = new JButton("Registrar Seller");
+        JButton registerBuyerButton = new JButton("Registrar Buyer");
         JButton createOrderButton = new JButton("Crear Orden de Venta");
 
         add(viewStockButton);

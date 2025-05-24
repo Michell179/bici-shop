@@ -21,7 +21,7 @@ public class Order {
     @Override
     public String toString() {
         return "Orden: " + quantity + " x " + product.getName() +
-                " | Comprador: " + buyer.getName() +
-                " | Vendedor: " + seller.getName();
+                " | Buyer: " + buyer.getName() +
+                " | Seller: " + seller.getName();
     }
 }
