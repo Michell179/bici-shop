@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public class BuyerView extends JFrame {
     public BuyerView(BuyerRepository buyerRepository) {
-        setTitle("Registro de Buyer");
+        setTitle("Registro de Buyerr");
         setSize(300, 150);
         setLocationRelativeTo(null);
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
